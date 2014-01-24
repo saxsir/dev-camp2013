@@ -28,4 +28,8 @@ module.exports = (grunt) ->
           'coffeelint:all'
         ]
 
-    grunt.registerTask 'default', ['coffeelint:all', 'watch:all']
+    shell:
+      mongo:
+        command: 'mongod &'
+
+    grunt.registerTask 'default', ['shell:mongo', 'coffeelint:all', 'watch:all']
