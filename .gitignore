@@ -39,4 +39,5 @@ bower_components
 
 # added
 !.coffeelint
+bin/mongo-sample.coffee
 db/
