@@ -40,4 +40,9 @@ module.exports = (grunt) ->
       mongo:
         command: 'mongod &'
 
-    grunt.registerTask 'default', ['shell:mongo', 'coffeelint:all', 'coffee:all', 'watch:all']
+    grunt.registerTask 'default', [
+      'shell:mongo'
+      'coffeelint:all'
+      'coffee:all'
+      'watch:all'
+    ]
