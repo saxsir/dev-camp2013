@@ -1,0 +1,8 @@
+{
+  "database": "sample",
+  "urls": [
+    "http://www.keio.ac.jp/index-jp.html",
+    "http://www.sfc.keio.ac.jp/top.html",
+    "http://www.waseda.jp/top/index-j.html"
+  ]
+}

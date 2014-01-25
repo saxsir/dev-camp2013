@@ -14,13 +14,15 @@
   "homepage": "https://github.com/saxsir/dev-camp2013",
   "dependencies": {
     "phantom": "~0.5.4",
-    "sqlite3": "~2.2.0",
-    "coffee-script": "~1.6.3"
+    "coffee-script": "~1.6.3",
+    "mongoose": "~3.8.4"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-watch": "~0.5.3",
     "matchdep": "~0.3.0",
-    "grunt-coffeelint": "0.0.8"
+    "grunt-coffeelint": "0.0.8",
+    "grunt-shell": "~0.6.4",
+    "grunt-contrib-coffee": "~0.8.2"
   }
 }
