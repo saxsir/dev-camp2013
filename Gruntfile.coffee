@@ -15,6 +15,13 @@ module.exports = (grunt) ->
             'bin/*.coffee'
           ]
 
+    coffee:
+      options:
+        bare: yes
+      all:
+        files:
+          'src/js/script.js': 'src/PageRipper.coffee'
+
     watch:
       options:
         interrupt: no
@@ -26,10 +33,11 @@ module.exports = (grunt) ->
         ]
         tasks: [
           'coffeelint:all'
+          'coffee:all'
         ]
 
     shell:
       mongo:
         command: 'mongod &'
 
-    grunt.registerTask 'default', ['shell:mongo', 'coffeelint:all', 'watch:all']
+    grunt.registerTask 'default', ['shell:mongo', 'coffeelint:all', 'coffee:all', 'watch:all']

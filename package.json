@@ -22,6 +22,7 @@
     "grunt-contrib-watch": "~0.5.3",
     "matchdep": "~0.3.0",
     "grunt-coffeelint": "0.0.8",
-    "grunt-shell": "~0.6.4"
+    "grunt-shell": "~0.6.4",
+    "grunt-contrib-coffee": "~0.8.2"
   }
 }
