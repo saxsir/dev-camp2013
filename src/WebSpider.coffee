@@ -4,6 +4,7 @@ mongoose = require 'mongoose'
 
 data_schema = new mongoose.Schema
   json: String
+  url: String
 
 error = (message)->
   console.error message
@@ -39,21 +40,21 @@ capturePageRecursive = (ph, urls, db, callback)->
           # ページのロードを2秒待ってから実行する
           setTimeout ->
             renderPage page, url, 'original'
-            parsePage page, db
+            parsePage page, url, db
             renderPage page, url, 'separated'
             capturePageRecursive ph, urls, db, callback
           ,2000
         else
           capturePageRecursive ph, urls, db, callback
 
-parsePage = (page, db)->
+parsePage = (page, url, db)->
   page.injectJs 'src/js/script.js'
   page.evaluate ->
     do ->
       pageRipper = new PageRipper(document)
       return pageRipper.run()
   ,(result)->
-    saveData db, result
+    saveData db, result, url
     page.close()
 
 renderPage = (page, url, name)->
@@ -62,10 +63,12 @@ renderPage = (page, url, name)->
     filePath += path+'/' unless path.length is 0
   page.render filePath + name + '.png'
 
-saveData = (db, data)->
+saveData = (db, data, url)->
   Page = db.model 'webpages', data_schema
   item = new Page()
-  item.json = JSON.stringify(data)
+  item.json = JSON.stringify data
+  item.url = url
+
   item.save (e)->
     console.log 'save data'
 
