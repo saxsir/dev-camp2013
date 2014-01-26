@@ -124,8 +124,8 @@ class PageRipper
     return false if style.visibility is 'hidden'
     return false if style.opacity is '0'
     bounds = node.getBoundingClientRect()
-    return false if bounds.width <= 1 and bounds.height <= 1
-    return false if bounds.right <= 0 and bounds.bottom <= 0
+    return false if bounds.width <= 1 or bounds.height <= 1
+    return false if bounds.right <= 0 or bounds.bottom <= 0
     return true
 
   isBlockElement: (node)->
