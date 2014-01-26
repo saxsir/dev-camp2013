@@ -41,3 +41,4 @@ bower_components
 !.coffeelint
 bin/mongo-sample.coffee
 examples/test.json
+logs/
